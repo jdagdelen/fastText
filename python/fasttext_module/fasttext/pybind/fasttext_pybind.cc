@@ -494,6 +494,14 @@ PYBIND11_MODULE(fasttext_pybind, m) {
             return castToPythonString(m.getNN(word, k), onUnicodeError);
           })
       .def(
+          "getNNByVector",
+          [](fasttext::FastText& m,
+             const fasttext::Vector& query,
+             int32_t k,
+             const char* onUnicodeError) {
+            return castToPythonString(m.getNN(m.wordVectors_, query, k, std::set::empty()), onUnicodeError);
+          })
+      .def(
           "getAnalogies",
           [](fasttext::FastText& m,
              const std::string& wordA,
