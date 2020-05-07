@@ -146,7 +146,7 @@ class FastText {
  
  inline const DenseMatrix& getWordVectors() {
       lazyComputeWordVectors();
-      return wordVectors_;
+      return *wordVectors_;
  }
  
   std::vector<std::pair<real, std::string>> getNN(
