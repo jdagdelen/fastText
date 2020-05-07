@@ -499,7 +499,7 @@ PYBIND11_MODULE(fasttext_pybind, m) {
              const fasttext::Vector& query,
              int32_t k,
              const char* onUnicodeError) {
-            return castToPythonString(m.getNN(m.getWordVectors(), query, k, std::set::empty()), onUnicodeError);
+            return castToPythonString(m.getNN(m.getWordVectors(), query, k, std::set<std::string>::empty()), onUnicodeError);
           })
       .def(
           "getAnalogies",
