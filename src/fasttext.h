@@ -55,11 +55,6 @@ class FastText {
   void startThreads(const TrainCallback& callback = {});
   void addInputVector(Vector&, int32_t) const;
   void trainThread(int32_t, const TrainCallback& callback);
-  std::vector<std::pair<real, std::string>> getNN(
-      const DenseMatrix& wordVectors,
-      const Vector& queryVec,
-      int32_t k,
-      const std::set<std::string>& banSet);
   void lazyComputeWordVectors();
   void printInfo(real, real, std::ostream&);
   std::shared_ptr<Matrix> getInputMatrixFromFile(const std::string&) const;
@@ -82,6 +77,12 @@ class FastText {
 
  public:
   FastText();
+ 
+  std::vector<std::pair<real, std::string>> getNN(
+      const DenseMatrix& wordVectors,
+      const Vector& queryVec,
+      int32_t k,
+      const std::set<std::string>& banSet);
 
   int32_t getWordId(const std::string& word) const;
 
