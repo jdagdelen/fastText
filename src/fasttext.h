@@ -143,7 +143,12 @@ class FastText {
 
   std::vector<std::pair<std::string, Vector>> getNgramVectors(
       const std::string& word) const;
-
+ 
+ inline const DenseMatrix& getWordVectors() {
+      lazyComputeWordVectors();
+      return wordVectors_;
+ }
+ 
   std::vector<std::pair<real, std::string>> getNN(
       const std::string& word,
       int32_t k);
